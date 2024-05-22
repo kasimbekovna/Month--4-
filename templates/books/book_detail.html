@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>{{ book_id.title }}</h1>
+<p>{{ book_id.price }}</p>
+<h2>Отзывы</h2>
+<table border="2">
+    <tr>
+        <td>Оценка</td> <td>Отзыв</td> <td>Дата отзыва</td>
+    </tr>
+    {% for i in book_id.review_book.all %}
+    <tr>
+        <td>{{ i.start }}</td> <td>{{ i.text}}</td> <td>{{ i.created_at}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

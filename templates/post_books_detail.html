@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<img src="{{ post_id.image.url }}" alt="">
+<h1>{{ post_id.title }}</h1>
+<p>{{ post_id.description }}</p>
+
+{% if post_id.audio %}
+<audio controls>
+    <source src="{{ post_id.audio.url }}" type="audio/mp3">
+    Your browser does not support the audio tag.
+</audio>
+{% endif %}
+
+{% if post_id.audio %}
+<iframe src="{{ post_id.audio }}" frameborder="0"></iframe>
+{% endif %}
+
+<p>{{ post_id.category_books }}</p>
+<p>{{ post_id.time_books }}</p>
+<p>{{ post_id.author }}</p>
+<p>{{ i.created_at }}</p>
+
+</body>
+</html>
