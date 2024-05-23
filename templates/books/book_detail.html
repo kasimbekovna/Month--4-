@@ -5,6 +5,8 @@
     <title>Title</title>
 </head>
 <body>
+<button><a href="/book_list/{{ book_id.id }}/delete/">Удалить</a></button>
+<button><a href="/book_list/{{ book_id.id }}/update/">Изменить</a></button>
 
 <h1>{{ book_id.title }}</h1>
 <p>{{ book_id.price }}</p>
@@ -19,5 +21,6 @@
     </tr>
     {% endfor %}
 </table>
+
 </body>
 </html>
