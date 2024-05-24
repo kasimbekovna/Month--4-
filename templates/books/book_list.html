@@ -5,7 +5,73 @@
     <title>Title</title>
 </head>
 <body>
+
+<div class="container">
+        <form action="{% url 'search' %}" method="GET" class="search-form">
+            <input type="text" type="search" name="q" class="form-control" placeholder="Search">
+            <button type="submit" class="btn btn-primary">Поиск</button>
+        </form>
+
+
+ <!-- Стили для поиска -->
+ <style>
+     /* Base styles for body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container to center the form */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* Search form styling */
+.search-form {
+    display: flex;
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Input field styling */
+.form-control {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+}
+
+/* Button styling */
+.btn {
+    padding: 10px 20px;
+    margin-left: -1px;
+    border: 1px solid #007bff;
+    border-radius: 0.25rem;
+    background-color: #007bff;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* Button hover effect */
+.btn:hover {
+    background-color: #0056b3;
+}
+
+ </style>
+
 <h1>Список книг</h1>
+<button><a href="/create_book/">Добавить</a></button>
 <button><a href="/create_review/">Добавить отзыв</a></button>
 <ul>
     {% for i in books %}
@@ -13,5 +79,6 @@
         <a href="/book_list/{{ i.id }}">Подробнее</a>
     {% endfor %}
 </ul>
+   </div>
 </body>
 </html>
