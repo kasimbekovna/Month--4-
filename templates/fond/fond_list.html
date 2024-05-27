@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+    <ul>
+        {% for i in object_list %}
+
+            <li>
+            <h1>Привет - {{ i.username }}</h1>
+            <p>Почта - {{ i.email }}</p>
+            <p>Имя - {{ i.first_name }}</p>
+            <p>Возраст - {{ i.age }}</p>
+            {% if i.fond %}
+            <p>У вас есть право на назначение пенсии по возрасту - {{ i.fond }}</p>
+            {% else %}
+            <p>Пенсия не назначено </p>
+            {% endif %}
+            </li>
+
+        {% endfor %}
+    </ul>
+    <form action="{% url  'fond:login' %}" method="POST">
+        {% csrf_token %}
+        <button type="submit">Выйти</button>
+    </form>
+
+
+</div>
+
+</body>
