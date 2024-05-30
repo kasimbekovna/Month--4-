@@ -6,33 +6,55 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('books', '0001_initial'),
+        ("books", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='books',
-            name='audio',
-            field=models.FileField(blank=True, null=True, upload_to='audio/', verbose_name='Загрузите аудио файл'),
+            model_name="books",
+            name="audio",
+            field=models.FileField(
+                blank=True,
+                null=True,
+                upload_to="audio/",
+                verbose_name="Загрузите аудио файл",
+            ),
         ),
         migrations.AlterField(
-            model_name='books',
-            name='audio_time',
-            field=models.PositiveIntegerField(null=True, verbose_name='Укажите длительность аудио книг'),
+            model_name="books",
+            name="audio_time",
+            field=models.PositiveIntegerField(
+                null=True, verbose_name="Укажите длительность аудио книг"
+            ),
         ),
         migrations.AlterField(
-            model_name='books',
-            name='category_books',
-            field=models.CharField(choices=[('новинки', 'новинки'), ('популярное', 'популярное'), ('подборки', 'подборки'), ('Другое', 'Другое')], max_length=50, null=True, verbose_name='Выберите категорию'),
+            model_name="books",
+            name="category_books",
+            field=models.CharField(
+                choices=[
+                    ("новинки", "новинки"),
+                    ("популярное", "популярное"),
+                    ("подборки", "подборки"),
+                    ("Другое", "Другое"),
+                ],
+                max_length=50,
+                null=True,
+                verbose_name="Выберите категорию",
+            ),
         ),
         migrations.AlterField(
-            model_name='books',
-            name='created_at',
+            model_name="books",
+            name="created_at",
             field=models.DateTimeField(auto_now_add=True, null=True),
         ),
         migrations.AlterField(
-            model_name='books',
-            name='image',
-            field=models.ImageField(blank=True, null=True, upload_to='images/', verbose_name='Загрузите фото'),
+            model_name="books",
+            name="image",
+            field=models.ImageField(
+                blank=True,
+                null=True,
+                upload_to="images/",
+                verbose_name="Загрузите фото",
+            ),
         ),
     ]

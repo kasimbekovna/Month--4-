@@ -6,6 +6,7 @@
 </head>
 <body>
 
+
 <div class="container">
         <form action="{% url 'search' %}" method="GET" class="search-form">
             <input type="text" type="search" name="q" class="form-control" placeholder="Search">
@@ -70,9 +71,11 @@ body {
 
  </style>
 
+
+
 <h1>Список книг</h1>
-<button><a href="/create_book/">Добавить</a></button>
-<button><a href="/create_review/">Добавить отзыв</a></button>
+
+
 <ul>
     {% for i in books %}
         <h2>{{ i.title }}</h2>

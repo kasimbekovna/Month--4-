@@ -7,53 +7,84 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('fond', '0001_initial'),
+        ("fond", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='socfonduser',
-            name='stag',
+            model_name="socfonduser",
+            name="stag",
             field=models.PositiveIntegerField(default=0, null=True),
         ),
         migrations.AlterField(
-            model_name='socfonduser',
-            name='age',
-            field=models.PositiveIntegerField(default=58, null=True, validators=[django.core.validators.MinValueValidator(5), django.core.validators.MaxValueValidator(99)]),
+            model_name="socfonduser",
+            name="age",
+            field=models.PositiveIntegerField(
+                default=58,
+                null=True,
+                validators=[
+                    django.core.validators.MinValueValidator(5),
+                    django.core.validators.MaxValueValidator(99),
+                ],
+            ),
         ),
         migrations.AlterField(
-            model_name='socfonduser',
-            name='fond',
-            field=models.CharField(default='Ваш возраст слишком мал для назначении пенсии', max_length=100, null=True),
+            model_name="socfonduser",
+            name="fond",
+            field=models.CharField(
+                default="Ваш возраст слишком мал для назначении пенсии",
+                max_length=100,
+                null=True,
+            ),
         ),
         migrations.AlterField(
-            model_name='socfonduser',
-            name='gender',
-            field=models.CharField(choices=[('Male', 'Male'), ('Female', 'Female')], max_length=100, null=True),
+            model_name="socfonduser",
+            name="gender",
+            field=models.CharField(
+                choices=[("Male", "Male"), ("Female", "Female")],
+                max_length=100,
+                null=True,
+            ),
         ),
         migrations.AlterField(
-            model_name='socfonduser',
-            name='image',
-            field=models.ImageField(blank=True, null=True, upload_to='images/', verbose_name='Загрузите паспорт и трудовую книжку'),
+            model_name="socfonduser",
+            name="image",
+            field=models.ImageField(
+                blank=True,
+                null=True,
+                upload_to="images/",
+                verbose_name="Загрузите паспорт и трудовую книжку",
+            ),
         ),
         migrations.AlterField(
-            model_name='socfonduser',
-            name='phone_number',
-            field=models.CharField(default='+996', max_length=14, null=True),
+            model_name="socfonduser",
+            name="phone_number",
+            field=models.CharField(default="+996", max_length=14, null=True),
         ),
         migrations.AlterField(
-            model_name='socfonduser',
-            name='pin_number',
-            field=models.CharField(max_length=16, null=True, verbose_name='ИИН -Индивидуальный идентификационный номер'),
+            model_name="socfonduser",
+            name="pin_number",
+            field=models.CharField(
+                max_length=16,
+                null=True,
+                verbose_name="ИИН -Индивидуальный идентификационный номер",
+            ),
         ),
         migrations.AlterField(
-            model_name='socfonduser',
-            name='text',
-            field=models.TextField(null=True, verbose_name='Заполните для назначения пенсии основные документы'),
+            model_name="socfonduser",
+            name="text",
+            field=models.TextField(
+                null=True,
+                verbose_name="Заполните для назначения пенсии основные документы",
+            ),
         ),
         migrations.AlterField(
-            model_name='socfonduser',
-            name='title',
-            field=models.CharField(max_length=50, null=True, verbose_name='Заявление о назначении пенсии по возрасту'),
+            model_name="socfonduser",
+            name="title",
+            field=models.CharField(
+                max_length=50,
+                null=True,
+                verbose_name="Заявление о назначении пенсии по возрасту",
+            ),
         ),
     ]

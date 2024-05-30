@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/create_book.css' %}">
+</head>
+<body>
+
+<form action="/create_book/" method="POST" class="ui-form">
+<h3>Добавить книг</h3>
+<div class="form-row">
+    {% csrf_token %}
+         {{ form.as_p }}
+</div>>
+<p><input type="submit" value="Добавить"></p>
+</form>
+
+</body>
+</html>
+

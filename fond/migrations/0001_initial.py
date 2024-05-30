@@ -12,31 +12,81 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('auth', '0012_alter_user_first_name_max_length'),
+        ("auth", "0012_alter_user_first_name_max_length"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='SocFondUser',
+            name="SocFondUser",
             fields=[
-                ('user_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to=settings.AUTH_USER_MODEL)),
-                ('title', models.CharField(max_length=50, null=True, verbose_name='Пенсии по возрасту')),
-                ('text', models.TextField(verbose_name='Заполните для назначения пенсии основные документы')),
-                ('image', models.ImageField(blank=True, upload_to='images/', verbose_name='Загрузите паспорт и трудовую книжку')),
-                ('pin_number', models.CharField(max_length=16, verbose_name='Пин номер, ИИН')),
-                ('phone_number', models.CharField(default='+996', max_length=14)),
-                ('age', models.PositiveIntegerField(default=58, validators=[django.core.validators.MinValueValidator(5), django.core.validators.MaxValueValidator(99)])),
-                ('gender', models.CharField(choices=[('Male', 'Male'), ('Female', 'Female')], max_length=100)),
-                ('fond', models.CharField(default='Ваш возраст слишком мал для назначении пенсии', max_length=100)),
+                (
+                    "user_ptr",
+                    models.OneToOneField(
+                        auto_created=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        parent_link=True,
+                        primary_key=True,
+                        serialize=False,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "title",
+                    models.CharField(
+                        max_length=50, null=True, verbose_name="Пенсии по возрасту"
+                    ),
+                ),
+                (
+                    "text",
+                    models.TextField(
+                        verbose_name="Заполните для назначения пенсии основные документы"
+                    ),
+                ),
+                (
+                    "image",
+                    models.ImageField(
+                        blank=True,
+                        upload_to="images/",
+                        verbose_name="Загрузите паспорт и трудовую книжку",
+                    ),
+                ),
+                (
+                    "pin_number",
+                    models.CharField(max_length=16, verbose_name="Пин номер, ИИН"),
+                ),
+                ("phone_number", models.CharField(default="+996", max_length=14)),
+                (
+                    "age",
+                    models.PositiveIntegerField(
+                        default=58,
+                        validators=[
+                            django.core.validators.MinValueValidator(5),
+                            django.core.validators.MaxValueValidator(99),
+                        ],
+                    ),
+                ),
+                (
+                    "gender",
+                    models.CharField(
+                        choices=[("Male", "Male"), ("Female", "Female")], max_length=100
+                    ),
+                ),
+                (
+                    "fond",
+                    models.CharField(
+                        default="Ваш возраст слишком мал для назначении пенсии",
+                        max_length=100,
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'user',
-                'verbose_name_plural': 'users',
-                'abstract': False,
+                "verbose_name": "user",
+                "verbose_name_plural": "users",
+                "abstract": False,
             },
-            bases=('auth.user',),
+            bases=("auth.user",),
             managers=[
-                ('objects', django.contrib.auth.models.UserManager()),
+                ("objects", django.contrib.auth.models.UserManager()),
             ],
         ),
     ]
